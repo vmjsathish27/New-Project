@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+        margin: 0;
+        min-width: 250px;
+        }
+
+        section {
+            padding: 100px 0px 80px;
+            background: #e2e2e2;
+        }
+        /* Include the padding and border in an element's total width and height */
+        * {
+        box-sizing: border-box;
+        }
+
+        /* Remove margins and padding from the list */
+        ul {
+        margin: 0;
+        padding: 0;
+        }
+
+        /* Style the list items */
+        ul li {
+        cursor: pointer;
+        position: relative;
+        padding: 12px 8px 12px 40px;
+        list-style-type: none;
+        background: #eee;
+        font-size: 18px;
+        transition: 0.2s;
+        
+        /* make the list items unselectable */
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        }
+
+        #myList {
+            margin-top: 30px;
+            box-shadow: 0 0 4px;
+        }
+        /* Set all odd list items to a different color (zebra-stripes) */
+        ul li:nth-child(odd) {
+        background: #f9f9f9;
+        }
+
+        /* Darker background-color on hover */
+        ul li:hover {
+        background: #ddd;
+        }
+
+        /* When clicked on, add a background color and strike out text */
+        ul li.checked {
+        background: #888;
+        color: #fff;        
+        }
+
+        /* Add a "checked" mark when clicked on */
+        ul li.checked::before {
+        content: '';
+        position: absolute;
+        border-color: #fff;
+        border-style: solid;
+        border-width: 0 2px 2px 0;
+        top: 10px;
+        left: 16px;
+        transform: rotate(45deg);
+        height: 15px;
+        width: 7px;
+        }
+
+        /* Style the close button */
+        .close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 12px 16px 12px 16px;
+        }
+
+        .close:hover {
+        background-color: #ff0000;
+        color: white;
+        }
+
+        /* Style the list-header */
+        .list-header {
+        background-color: #ff0000;
+        padding: 30px 40px;
+        color: white;
+        text-align: center;
+        }
+
+        /* Clear floats after the list-header */
+        .list-header:after {
+        content: "";
+        display: table;
+        clear: both;
+        }
+
+        /* Style the input */
+        input {            
+            border: none;
+            border-radius: 0;
+            width: 70%;
+            padding: 10px;
+            float: left;
+            font-size: 16px;
+            margin-right: 5px;
+        }
+
+        /* Style the "Add" button */
+        .addBtn {
+            padding: 10px;
+            width: 25%;
+            background: #424242;
+            color: #fff;
+            float: left;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 0;
+        }
+
+        .addBtn:hover {
+            background-color: #000;
+        }
+
+        .form-section form {
+            width: 100%;
+        }
+        .form-section label {
+            display: block;
+            margin-bottom: .5rem;
+        }
+        .form-section input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+
+        .form-section input[type=submit] {
+            background-color: #ff0000;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .form-section input[type=submit]:hover {
+            background-color: #bd2020;
+        }
+
+        @media (max-width:767px){
+            input {            
+                width: 100%;
+            }
+            .addBtn {    
+                width: 100%;
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+
+
+
+<body>
+<div clss="page-wrapper">
+    <section class="list-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                <div id="list-section" class="list-header">
+                    <h2 style="margin:5px 0px 15px">My List</h2>
+                    <input type="text" id="myInput" placeholder="Add a Item">
+                    <span onclick="newElement()" class="addBtn">Add a List</span>
+                  </div>
+                  
+                  <ul id="myList">
+                    <li class="checked">Foodhub</li>
+                    <li>Just Eat</li>
+                    <li>Big Foodie</li>
+                    <li>Zomoto</li>
+                    <li>Swiggy</li>                    
+                  </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="form-section">
+        <div class="container">
+            <div class="row">
+                <form action="/action_page.php">
+                    <label for="fname">Full Name</label>
+                    <input type="text" id="Name" name="fullname" placeholder="Enter your Name.." required>
+                
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" placeholder="Enter your Email.." required>
+                
+                    <label for="country">Country</label>
+                    <select id="country" name="country">
+                      <option value="australia">India</option>
+                      <option value="canada">London</option>
+                      <option value="usa">USA</option>
+                    </select>
+                
+                    <label for="Text">Text</label>
+                    <textarea id="textSubject" name="Text" placeholder="Write something.." style="height:200px"></textarea>
+                
+                    <input type="submit" value="Submit">
+                  </form>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+// Create a "close" button and append it to each list item
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must add something...!");
+  } else {
+    document.getElementById("myList").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+</script>
+
+</body>
+</html>
